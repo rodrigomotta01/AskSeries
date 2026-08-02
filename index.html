@@ -16,25 +16,26 @@
         <h1> Não sabe o que assistir?</h1>
         <h3>Descubra aqui!</h3>
         <div class="subcontainer">
-            <form id="busca" type="submit" action="GET">
+            <form id="busca" type="submit">
                 <div class="row">
                     <div class="field">
                         <p class="label">Gênero</p>
                         <i class="fa-solid fa-film"></i>
                         <select name="genero" id="genero" required>
                             <option value="">Selecione um gênero</option>
-                            <option value="ação">Ação</option>
-                            <option value="aventura">Aventura</option>
-                            <option value="comedia">Comédia</option>
-                            <option value="drama">Drama</option>
-                            <option value="terror">Terror</option>
+                            <option value="10759">Ação e Aventura</option>
+                            <option value="16">Animação</option>
+                            <option value="35">Comédia</option>
+                            <option value="18">Drama</option>
+                            <option value="9648">Mistério</option>
+                            <option value="10765">Ficção Científica</option>
                         </select>
                     </div>
 
                     <div class="field">
                         <p class="label">Ano de lançamento</p>
                         <i class="fa-solid fa-calendar"></i>
-                        <input type="number" name="ano" min="1900" max="2030" placeholder="Ex: 2024">
+                        <input type="number" name="ano" id="ano" required min="1900" max="2030" placeholder="Ex: 2024">
                     </div>
                 </div>
 
@@ -44,22 +45,21 @@
                         <i class="fa-solid fa-tv"></i>
                         <select name="plataforma" id="plataforma">
                             <option value="">Selecione uma plataforma (opcional)</option>
-                            <option value="netflix">Netflix</option>
-                            <option value="primevideo">Prime Video</option>
-                            <option value="disneyplus">Disney+</option>
-                            <option value="hbo">HBO</option>
-                            <option value="apple">Apple TV</option>
+                            <option value="8">Netflix</option>
+                            <option value="119">Amazon Prime Video</option>
+                            <option value="337">Disney+</option>
+                            <option value="1899">HBO</option>
+                            <option value="350">Apple TV</option>
                         </select>
                     </div>
 
                     <div class="field">
                         <p class="label">Duração dos episódios</p>
                         <i class="fa-solid fa-clock"></i>
-                        <select name="tamanho dos episodios" id="tamanho-dos-episodios">
+                        <select name="tamanho dos episodios" id="tamep">
                             <option value="">Selecione o tamanho dos episódios (opcional)</option>
-                            <option value="curto">Curto (menos de 30 minutos)</option>
-                            <option value="medio">Médio (30 a 60 minutos)</option>
-                            <option value="longo">Longo (mais de 60 minutos)</option>
+                            <option value="0-45">Curto (30 a 45 minutos)</option>
+                            <option value="45-60">Longo (45 a 60 minutos)</option>
                         </select>
                     </div>
                 </div>
@@ -71,5 +71,6 @@
             <button type="submit" form="busca">Buscar</button>
         </div>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>
