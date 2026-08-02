@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AskSeries</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Funnel+Display:wght@300..800&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+</head>
+<body>
+    <div class = "container">
+        <img id="logo" src= "./assets/LogoB.svg" width="300px" height="100px" alt="Logo do AskSeries">
+        <h1> Não sabe o que assistir?</h1>
+        <h3>Descubra aqui!</h3>
+        <div class="subcontainer">
+            <form id="busca" type="submit" action="GET">
+                <div class="row">
+                    <div class="field">
+                        <p class="label">Gênero</p>
+                        <i class="fa-solid fa-film"></i>
+                        <select name="genero" id="genero" required>
+                            <option value="">Selecione um gênero</option>
+                            <option value="ação">Ação</option>
+                            <option value="aventura">Aventura</option>
+                            <option value="comedia">Comédia</option>
+                            <option value="drama">Drama</option>
+                            <option value="terror">Terror</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <p class="label">Ano de lançamento</p>
+                        <i class="fa-solid fa-calendar"></i>
+                        <input type="number" name="ano" min="1900" max="2030" placeholder="Ex: 2024">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="field">
+                        <p class="label">Plataforma de Streaming</p>
+                        <i class="fa-solid fa-tv"></i>
+                        <select name="plataforma" id="plataforma">
+                            <option value="">Selecione uma plataforma (opcional)</option>
+                            <option value="netflix">Netflix</option>
+                            <option value="primevideo">Prime Video</option>
+                            <option value="disneyplus">Disney+</option>
+                            <option value="hbo">HBO</option>
+                            <option value="apple">Apple TV</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <p class="label">Duração dos episódios</p>
+                        <i class="fa-solid fa-clock"></i>
+                        <select name="tamanho dos episodios" id="tamanho-dos-episodios">
+                            <option value="">Selecione o tamanho dos episódios (opcional)</option>
+                            <option value="curto">Curto (menos de 30 minutos)</option>
+                            <option value="medio">Médio (30 a 60 minutos)</option>
+                            <option value="longo">Longo (mais de 60 minutos)</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </form> 
+        </div>
+        <div class="buttoncontainer">
+            <button type="reset" form="busca">Limpar</button>
+            <button type="submit" form="busca">Buscar</button>
+        </div>
+    </div>
+</body>
+</html>
