@@ -13,7 +13,14 @@ const fieldTamep = document.querySelector("#tamep");
 
 const form = document.querySelector("#busca");
 
-form.addEventListener("submit", (getFilters))
+form.addEventListener("submit", (fetchSeries))
+
+async function fetchSeries(event){
+    const filters = getFilters(event);
+    const results = await getSeries(filters);
+    const finalresult = sortSeries(results);
+    console.log(finalresult.name);
+}
 
 function getFilters(event) {
     event.preventDefault()
@@ -25,11 +32,7 @@ function getFilters(event) {
         tamep: fieldTamep.value
     }
 
-    console.log(filters.genero)
-    console.log(filters.ano)
-    console.log(filters.plataforma)
-    console.log(filters.tamep)  
-    getSeries(filters)
+    return filters
 }
 
 async function getSeries(filters) {
@@ -55,5 +58,15 @@ async function getSeries(filters) {
     }
 
     console.log(params.toString())
+    const response = await fetch(`https://api.themoviedb.org/3/discover/tv?include_adult=true&language=pt-BR&sort_by=popularity.desc&${params.toString()}`, options)
+    const series = await response.json()
+    
+    return series.results
 }
 
+function sortSeries(results){
+    if (results){
+        const index = Math.floor(Math.random() * results.length)
+        return results[index]
+    }
+}
