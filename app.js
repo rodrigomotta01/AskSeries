@@ -19,7 +19,7 @@ async function fetchSeries(event){
     const filters = getFilters(event);
     const results = await getSeries(filters);
     const finalresult = sortSeries(results);
-    console.log(finalresult.name);
+    displaySeries(finalresult);
 }
 
 function getFilters(event) {
@@ -69,4 +69,42 @@ function sortSeries(results){
         const index = Math.floor(Math.random() * results.length)
         return results[index]
     }
+}
+
+function displaySeries(series){
+    const subcontainerSearch = document.querySelector(".subcontainer-search");
+    const subcontainerResult = document.querySelector(".subcontainer-result");
+    const searchbuttoncontainer = document.querySelector(".searchbuttoncontainer");
+    const resultbuttoncontainer = document.querySelector(".resultbuttoncontainer");
+    const titulo = document.querySelector("#titulo");
+    const descricao = document.querySelector("#descricao");
+    const anoLancamento = document.querySelector("#anoLancamento");
+    const genero = document.querySelector(".subcontainer-result #genero");
+    const selectGenero = document.querySelector("#genero");
+    const generoSelecionado = selectGenero.options[selectGenero.selectedIndex].text;
+    const plataforma = document.querySelector(".subcontainer-result #plataforma");
+    const selectPlataforma = document.querySelector("#plataforma");
+    const plataformaSelecionada = selectPlataforma.options[selectPlataforma.selectedIndex].text;
+
+    const h1header = document.querySelector(".container h1")
+    const h3header = document.querySelector(".container h3")
+    
+    titulo.textContent = series.name;
+    descricao.textContent = series.overview;
+    anoLancamento.textContent = series.first_air_date;
+
+    genero.textContent = generoSelecionado;
+    if (plataformaSelecionada !== "Selecione uma plataforma (opcional)") {
+        plataforma.textContent = plataformaSelecionada;
+    }
+
+    h1header.textContent = "Seu resultado!"
+    h3header.textContent = "Confira a série que selecionamos para você"
+
+    subcontainerSearch.classList.add("hidden");
+    searchbuttoncontainer.classList.add("hidden");
+    subcontainerResult.classList.remove("hidden")
+    resultbuttoncontainer.classList.remove("hidden")
+
+
 }

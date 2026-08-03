@@ -11,11 +11,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
 </head>
 <body>
-    <div class = "container">
-        <img id="logo" src= "./assets/LogoB.svg" width="300px" height="100px" alt="Logo do AskSeries">
+    <div class="container">
+        <a href="">
+            <img id="logo" src="./assets/LogoB.svg" width="300px" height="100px" alt="Logo do AskSeries">
+        </a>
         <h1> Não sabe o que assistir?</h1>
         <h3>Descubra aqui!</h3>
-        <div class="subcontainer">
+        <div class="subcontainer-search">
             <form id="busca" type="submit">
                 <div class="row">
                     <div class="field">
@@ -34,7 +36,7 @@
                     <div class="field">
                         <p class="label">Ano de lançamento</p>
                         <i class="fa-solid fa-calendar"></i>
-                        <input type="number" name="ano" id="ano" required min="1900" max="2030" placeholder="Ex: 2024">
+                        <input type="number" name="ano" id="ano" min="1900" max="2030" placeholder="Ex: 2024">
                     </div>
                 </div>
 
@@ -65,9 +67,27 @@
                 
             </form> 
         </div>
+
+        <div class="subcontainer-result hidden">
+            <div class="result-content">
+                <h2 id="titulo"></h2>
+                <p class="label" id="descricao"></p>
+                <p id="anoLancamento"></p>
+                <p id="genero"></p>
+                <p id="plataforma"></p>
+                <p id="duracao"></p>
+            </div>
+        </div>
         <div class="buttoncontainer">
-            <button type="reset" form="busca">Limpar</button>
-            <button type="submit" form="busca">Buscar</button>
+            <div class="searchbuttoncontainer">
+                <button type="reset" form="busca">Limpar</button>
+                <button type="submit" form="busca">Buscar</button>
+            </div>
+            <div class="resultbuttoncontainer hidden">
+                <a href="">
+                    <button id="buttonretry">Tentar Novamente</button>
+                </a> 
+            </div>
         </div>
     </div>
     <script src="app.js"></script>
