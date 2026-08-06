@@ -92,6 +92,9 @@ function displaySeries(series){
     titulo.textContent = series.name;
     descricao.textContent = series.overview;
     anoLancamento.textContent = series.first_air_date.slice(0, 4);
+    const posterpath = series.poster_path;
+    const poster = document.querySelector("#poster"); 
+    poster.src = `https://image.tmdb.org/t/p/w500${posterpath}`;
 
     genero.textContent = generoSelecionado;
     if (plataformaSelecionada !== "Selecione uma plataforma (opcional)") {

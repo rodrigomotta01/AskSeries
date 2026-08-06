@@ -144,6 +144,7 @@ button[type="reset"]:hover{
 h3{
     margin-top: 5px;
     margin-bottom: 30px;
+    color: #c9c7cd
 }
 
 .field{
@@ -184,12 +185,31 @@ select option{
     padding-left: 38px;
 }
 
+/* Result */
+
+.result-content{
+    display: flex;
+    gap: 24px;
+}
+
+.result-text{
+    display: flex;
+    flex-direction: column;
+    flex: 1;    
+    min-width: 0;
+}
+
+.result-text p{
+    font-size: 16px;
+    color: #c9c7cd;
+}
+
 .title,
 .info{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
 }
 
 .title{
@@ -203,6 +223,8 @@ select option{
 .info p {
     display: flex;
     align-items: center;
+    font-weight: bold;
+    color: #ffffff;
 }
 
 .info p:not(:empty)::before {
@@ -218,6 +240,13 @@ select option{
     border-radius: 10px;
 }
 
+#poster{
+    width: 125px;
+    height: 175px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
 .hidden{
     display: none;
 }
@@ -230,5 +259,15 @@ select option{
 
     .row{
         grid-template-columns: 1fr;
+    }
+
+    .result-content{
+        flex-direction: column;
+    }
+
+    #poster{
+        width: 100%;
+        max-width: 260px;
+        height: auto;
     }
 }
