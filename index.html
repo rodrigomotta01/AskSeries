@@ -18,7 +18,7 @@
         <h1> Não sabe o que assistir?</h1>
         <h3>Descubra aqui!</h3>
         <div class="subcontainer-search">
-            <form id="busca" type="submit">
+            <form id="busca" type="submit" method="GET">
                 <div class="row">
                     <div class="field">
                         <p class="label">Gênero</p>
@@ -38,7 +38,7 @@
                     <div class="field">
                         <p class="label">Ano de lançamento</p>
                         <i class="fa-solid fa-calendar"></i>
-                        <input type="number" name="ano" id="ano" min="1900" max="2030" placeholder="Ex: 2024">
+                        <input type="number" name="ano" id="anoFiltro" min="1900" max="2030" placeholder="Ex: 2024">
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@
                     <div class="field">
                         <p class="label">Duração dos episódios</p>
                         <i class="fa-solid fa-clock"></i>
-                        <select name="tamanho dos episodios" id="tamep">
+                        <select name="tamanho dos episodios" id="tamepFiltro">
                             <option value="">Selecione o tamanho dos episódios (opcional)</option>
                             <option value="0-45">Curto (30 a 45 minutos)</option>
                             <option value="45-60">Longo (45 a 60 minutos)</option>
@@ -82,7 +82,7 @@
                     <div class="info">
                         <p id="generoResultado"></p>
                         <p id="plataformaResultado"></p>
-                        <p id="duracao"></p>
+                        <p id="duracaoResultado"></p>
                     </div>
                 </div>
             </div>

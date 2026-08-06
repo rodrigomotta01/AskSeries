@@ -6,11 +6,6 @@ const options = {
   }
 };
 
-const fieldGenero = document.querySelector("#generoFiltro");
-const fieldAno = document.querySelector("#ano");
-const fieldPlataforma = document.querySelector("#plataformaFiltro");
-const fieldTamep = document.querySelector("#tamep");
-
 const form = document.querySelector("#busca");
 
 form.addEventListener("submit", (fetchSeries))
@@ -24,6 +19,11 @@ async function fetchSeries(event){
 
 function getFilters(event) {
     event.preventDefault()
+
+    const fieldGenero = document.querySelector("#generoFiltro");
+    const fieldAno = document.querySelector("#anoFiltro");
+    const fieldPlataforma = document.querySelector("#plataformaFiltro");
+    const fieldTamep = document.querySelector("#tamepFiltro");
 
     const filters = {    
         genero: fieldGenero.value,
@@ -70,7 +70,6 @@ function sortSeries(results){
         return results[index]
     }
 }
-
 function displaySeries(series){
     const subcontainerSearch = document.querySelector(".subcontainer-search");
     const subcontainerResult = document.querySelector(".subcontainer-result");
@@ -79,29 +78,49 @@ function displaySeries(series){
     const titulo = document.querySelector("#titulo");
     const descricao = document.querySelector("#descricao");
     const anoLancamento = document.querySelector("#anoLancamento");
+    
     const genero = document.querySelector("#generoResultado");
     const selectGenero = document.querySelector("#generoFiltro");
     const generoSelecionado = selectGenero.options[selectGenero.selectedIndex].text;
+    
     const plataforma = document.querySelector("#plataformaResultado");
     const selectPlataforma = document.querySelector("#plataformaFiltro");
     const plataformaSelecionada = selectPlataforma.options[selectPlataforma.selectedIndex].text;
-
+    
+    const duracao = document.querySelector("#duracaoResultado");
+    const selectDuracao = document.querySelector("#tamepFiltro");
+    const duracaoSelecionada = selectDuracao.options[selectDuracao.selectedIndex].text;
+    
     const h1header = document.querySelector(".container h1")
     const h3header = document.querySelector(".container h3")
-    
+
+    if (!series) {
+        h1header.textContent = "Ops!"
+        h3header.textContent = "Não encontramos nenhuma série com os filtros selecionados. Tente novamente."
+    }
+
     titulo.textContent = series.name;
     descricao.textContent = series.overview;
     anoLancamento.textContent = series.first_air_date.slice(0, 4);
+
     const posterpath = series.poster_path;
     const poster = document.querySelector("#poster"); 
     poster.src = `https://image.tmdb.org/t/p/w500${posterpath}`;
 
     genero.textContent = generoSelecionado;
+
     if (plataformaSelecionada !== "Selecione uma plataforma (opcional)") {
         plataforma.textContent = plataformaSelecionada;
     } else {
         plataforma.textContent = "";
-    }   
+    }
+    
+    if (duracaoSelecionada !== "Selecione o tamanho dos episódios (opcional)") {
+        duracao.textContent = duracaoSelecionada;
+    }
+    else {
+        duracao.textContent = "";
+    }
 
     h1header.textContent = "Seu resultado!"
     h3header.textContent = "Confira a série que selecionamos para você"
