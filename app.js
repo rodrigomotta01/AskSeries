@@ -6,9 +6,9 @@ const options = {
   }
 };
 
-const fieldGenero = document.querySelector("#genero");
+const fieldGenero = document.querySelector("#generoFiltro");
 const fieldAno = document.querySelector("#ano");
-const fieldPlataforma = document.querySelector("#plataforma");
+const fieldPlataforma = document.querySelector("#plataformaFiltro");
 const fieldTamep = document.querySelector("#tamep");
 
 const form = document.querySelector("#busca");
@@ -79,11 +79,11 @@ function displaySeries(series){
     const titulo = document.querySelector("#titulo");
     const descricao = document.querySelector("#descricao");
     const anoLancamento = document.querySelector("#anoLancamento");
-    const genero = document.querySelector(".subcontainer-result #genero");
-    const selectGenero = document.querySelector("#genero");
+    const genero = document.querySelector("#generoResultado");
+    const selectGenero = document.querySelector("#generoFiltro");
     const generoSelecionado = selectGenero.options[selectGenero.selectedIndex].text;
-    const plataforma = document.querySelector(".subcontainer-result #plataforma");
-    const selectPlataforma = document.querySelector("#plataforma");
+    const plataforma = document.querySelector("#plataformaResultado");
+    const selectPlataforma = document.querySelector("#plataformaFiltro");
     const plataformaSelecionada = selectPlataforma.options[selectPlataforma.selectedIndex].text;
 
     const h1header = document.querySelector(".container h1")
@@ -91,12 +91,14 @@ function displaySeries(series){
     
     titulo.textContent = series.name;
     descricao.textContent = series.overview;
-    anoLancamento.textContent = series.first_air_date;
+    anoLancamento.textContent = series.first_air_date.slice(0, 4);
 
     genero.textContent = generoSelecionado;
     if (plataformaSelecionada !== "Selecione uma plataforma (opcional)") {
         plataforma.textContent = plataformaSelecionada;
-    }
+    } else {
+        plataforma.textContent = "";
+    }   
 
     h1header.textContent = "Seu resultado!"
     h3header.textContent = "Confira a série que selecionamos para você"

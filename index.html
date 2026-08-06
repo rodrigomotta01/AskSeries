@@ -23,13 +23,15 @@
                     <div class="field">
                         <p class="label">Gênero</p>
                         <i class="fa-solid fa-film"></i>
-                        <select name="genero" id="genero" required>
+                        <select name="genero" id="generoFiltro" required>
                             <option value="">Selecione um gênero</option>
                             <option value="10759">Ação e Aventura</option>
                             <option value="35">Comédia</option>
                             <option value="18">Drama</option>
                             <option value="9648">Mistério</option>
                             <option value="10765">Ficção Científica</option>
+                            <option value="16">Animação</option>
+                            <option value="80">Criminal</option>
                         </select>
                     </div>
 
@@ -44,7 +46,7 @@
                     <div class="field">
                         <p class="label">Plataforma de Streaming</p>
                         <i class="fa-solid fa-tv"></i>
-                        <select name="plataforma" id="plataforma">
+                        <select name="plataforma" id="plataformaFiltro">
                             <option value="">Selecione uma plataforma (opcional)</option>
                             <option value="8">Netflix</option>
                             <option value="119">Amazon Prime Video</option>
@@ -70,12 +72,16 @@
 
         <div class="subcontainer-result hidden">
             <div class="result-content">
-                <h2 id="titulo"></h2>
+                <div class="title">
+                    <h1 id="titulo"></h1>
+                    <h4 id="anoLancamento"></h4>
+                </div>
                 <p class="label" id="descricao"></p>
-                <p id="anoLancamento"></p>
-                <p id="genero"></p>
-                <p id="plataforma"></p>
-                <p id="duracao"></p>
+                <div class="info">
+                    <p id="generoResultado"></p>
+                    <p id="plataformaResultado"></p>
+                    <p id="duracao"></p>
+                </div>
             </div>
         </div>
         <div class="buttoncontainer">

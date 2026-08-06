@@ -184,6 +184,40 @@ select option{
     padding-left: 38px;
 }
 
+.title,
+.info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.title{
+    margin-bottom: 10px;
+}
+
+.info {
+    margin-top: 10px;
+}
+
+.info p {
+    display: flex;
+    align-items: center;
+}
+
+.info p:not(:empty)::before {
+    content: "•";
+    margin-right: 8px;
+    color: #ffd902;
+}
+
+.title #anoLancamento{
+    padding: 6px;
+    background-color: #ffd902;
+    color: #000000;
+    border-radius: 10px;
+}
+
 .hidden{
     display: none;
 }
